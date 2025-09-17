@@ -506,6 +506,7 @@ main {
 .contacto-btn {
   display: inline-block;
   margin: 1rem auto;
+  margin-left: 23px;
   padding: .8rem 1.5rem;
   border-radius: .6rem;
   background: var(--hd-brand);
@@ -518,6 +519,16 @@ main {
 
 .contacto-btn:hover {
   background: #d94f00;
+
   transform: scale(1.05); /* pequeña animación */
 }
+
+.hd-card__price{
+  padding-left: 23px;
+}
+
+#prodTitulo{
+  padding-left: 23px;
+}
+
 
