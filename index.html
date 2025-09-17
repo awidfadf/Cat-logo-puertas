@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo de Puertas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <br>
+    <div class="hd-header__logo">Catálogo</div>
+   <!--  <form class="hd-header__search" onsubmit="event.preventDefault();">
+      <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form> -->
+  </header>
+
+  <!-- Grid de empresas -->
+  <!-- Grid de empresas -->
+<main class="brand-grid">
+  <div class="brand-card" onclick="abrirEmpresaModal(1)">
+    <img src="img/Empresas/empresa11.jpg" alt="XE Seguridad">
+    <h3>XE Seguridad</h3>
+    <a href="#">Ver productos</a>
+  </div>
+
+  <div class="brand-card" onclick="abrirEmpresaModal(2)">
+    <img src="img/Empresas/empresa211.png" alt="TecnoDoor">
+    <h3>TecnoDoor</h3>
+    <a href="#">Ver productos</a>
+  </div>
+
+  <div class="brand-card" onclick="abrirEmpresaModal(3)">
+    <img src="img/Empresas/empresa33.png" alt="Protecto Home">
+    <h3>Protecto Home</h3>
+    <a href="#">Ver productos</a>
+  </div>
+</main>
+
+  <footer>
+    <p>© 2025 Mi Empresa. Todos los derechos reservados.</p>
+    <a href="contacto.html" class="hd-panel__cta">Contactar vendedor</a>
+  </footer>
+
+  <!-- Modal Empresa -->
+  <div id="empresaModal" class="empresa-modal" hidden>
+    <div class="empresa-modal__content">
+      <button class="empresa-modal__close" onclick="cerrarEmpresaModal()">×</button>
+      <!-- <img id="empresaImg" alt="Logo empresa" /> -->
+      <h2 id="empresaTitulo"></h2>
+      <p id="empresaDesc"></p>
+      <a id="empresaLink" href="#" class="empresa-modal__cta">Ir al catálogo</a>
+    </div>
+  </div>
+  <div id="empresaBackdrop" class="empresa-backdrop" hidden></div>
+  <script src="js/script.js"></script>
+</body> 
+</html>
+
+
+
+
+
+
+
+
+
+
+

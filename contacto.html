@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    
+    .contact-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.1);
+    }
+    .contact-container h1 {
+      text-align: center;
+      color: var(--hd-brand);
+      margin-bottom: 1.5rem;
+    }
+    .contact-container label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--hd-text);
+    }
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.4rem;
+      border: 1px solid var(--hd-border);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    .contact-container button {
+      margin-top: 1.5rem;
+      padding: 0.9rem;
+      width: 100%;
+      border: none;
+      background: var(--hd-brand);
+      color: #fff;
+      border-radius: .75rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .contact-container button:hover {
+      background: #d95302;
+    }
+
+    /* ===== Modal de confirmación (estético) ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;               /* hidden por defecto */
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      z-index: 1200;
+      padding: 1.5rem;
+    }
+    .modal--open { display: flex; }
+
+    .modal-box {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+      padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.8rem;
+      border: none;
+      background: transparent;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #444;
+    }
+    .modal-close:hover { color: var(--hd-brand); }
+
+    .modal-box h2 {
+      margin: 0 0 .5rem;
+      font-size: 1.25rem;
+      color: var(--hd-green);
+    }
+    .modal-box p {
+      margin: 0;
+      color: var(--hd-text);
+    }
+
+    /* pequeño icono grande */
+    .modal-icon {
+      font-size: 2.4rem;
+      margin-bottom: .5rem;
+      display: inline-block;
+    }
+
+    /* responsive small */
+    @media (max-width: 420px) {
+      .contact-container { margin: 1.5rem; padding: 1rem; }
+      .modal-box { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hd-header">
+    <div class="hd-header__logo">Catálogo</div>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <h1>Contáctanos</h1>
+      <!-- action apuntando a tu formulario de Formspree -->
+      <form id="contactForm" action="https://formspree.io/f/meolblok" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 nombre. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Modal de confirmación (inserta al final del body) -->
+  <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box" role="document">
+      <button class="modal-close" aria-label="Cerrar" id="modalCloseBtn">×</button>
+      <div class="modal-icon">✅</div>
+      <h2>Mensaje enviado</h2>
+      <p>Gracias por contactarnos. Te responderemos pronto.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById("contactForm");
+      const modal = document.getElementById("successModal");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+      // Envío via fetch a Formspree
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            // mostrar modal
+            modal.classList.add("modal--open");
+            modal.setAttribute("aria-hidden", "false");
+            form.reset();
+          } else {
+            // intenta leer error y mostrarlo sencillo al usuario
+            let errText = "Hubo un error al enviar. Intenta de nuevo.";
+            try {
+              const json = await res.json();
+              if (json && json.error) errText = json.error;
+            } catch (err) { /* ignore */ }
+            alert(errText);
+          }
+        } catch (err) {
+          alert("No se pudo enviar el formulario. Revisa tu conexión.");
+        }
+      });
+
+      modalCloseBtn.addEventListener("click", cerrarModal);
+
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) cerrarModal();
+      });
+      
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.classList.contains("modal--open")) {
+          cerrarModal();
+        }
+      });
+
+      function cerrarModal() {
+        modal.classList.remove("modal--open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    })();
+  </script>
+</body>
+</html>
+

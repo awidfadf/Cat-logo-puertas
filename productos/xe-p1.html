@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Puerta Blindada XE-100 — Empresa 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <div class="hd-header__logo">Empresa 1</div>
+    <form class="hd-header__search" onsubmit="event.preventDefault();">
+      <input type="search" placeholder="Buscar en Empresa 1..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+
+  <!-- Detalles del producto -->
+  <main style="padding:1rem; max-width:1000px; margin:auto;">
+    <div style="display:grid; gap:1rem; grid-template-columns:1fr 1fr;">
+      <!-- Galería -->
+      <div>
+        <img src="https://via.placeholder.com/600x400?text=Puerta+Blindada+XE-100" alt="Puerta Blindada XE-100" style="width:100%; border-radius:.75rem; margin-bottom:1rem;" />
+        <div style="display:flex; gap:.5rem;">
+          <img src="https://via.placeholder.com/120x80?text=Vista1" style="width:120px; border-radius:.5rem;" alt="Vista 1" />
+          <img src="https://via.placeholder.com/120x80?text=Vista2" style="width:120px; border-radius:.5rem;" alt="Vista 2" />
+        </div>
+      </div>
+
+      <!-- Info del producto -->
+      <div>
+        <h1>Puerta Blindada XE-100</h1>
+        <p><strong>Precio:</strong> $12,500 MXN</p>
+        <p><strong>Material:</strong> Acero reforzado</p>
+        <p><strong>Medidas:</strong> 210 x 90 cm</p>
+        <p><strong>Stock:</strong> 12 unidades</p>
+        <p><strong>Descripción:</strong> Puerta de seguridad blindada modelo XE-100, ideal para entradas principales, con cerradura multipunto y diseño moderno.</p>
+        <button class="hd-card__cta">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <section style="margin-top:3rem;">
+      <h2>Productos relacionados</h2>
+      <div class="hd-grid">
+        <!-- Relacionado 1 -->
+        <article class="hd-card">
+          <div class="hd-card__media">
+            <img src="https://via.placeholder.com/400x250?text=Puerta+Madera+XE-200" alt="Puerta Interior XE-200" />
+          </div>
+          <div class="hd-card__body">
+            <h3 class="hd-card__title">Puerta Interior XE-200</h3>
+            <div class="hd-card__price">$6,800 MXN</div>
+          </div>
+          <a class="hd-card__cta" href="xe-p2.html">Ver detalles</a>
+        </article>
+
+        <!-- Relacionado 2 -->
+        <article class="hd-card">
+          <div class="hd-card__media">
+            <img src="https://via.placeholder.com/400x250?text=Puerta+Premium+XE-300" alt="Puerta Premium XE-300" />
+          </div>
+          <div class="hd-card__body">
+            <h3 class="hd-card__title">Puerta Premium XE-300</h3>
+            <div class="hd-card__price">$18,900 MXN</div>
+          </div>
+          <a class="hd-card__cta" href="xe-p3.html">Ver detalles</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:2rem;">
+    <a href="../marca-empresa1.html">← Volver al catálogo Empresa 1</a> | 
+    <a href="../index.html">Inicio</a>
+  </footer>
+</body>
+</html>
+

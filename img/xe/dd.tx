@@ -1,0 +1,66 @@
+/* =========================
+   Galería en páginas de detalle
+========================= */
+function initGaleria() {
+  const thumbs = document.querySelectorAll(".hd-detail__gallery-thumbs img");
+  const main = $("#mainImage");
+  if (!main || !thumbs.length) return;
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      main.src = thumb.src;
+    });
+  });
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalle del producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <div class="hd-header__logo"><a href="index.html">Logo</a></div>
+    <form class="hd-header__search" onsubmit="event.preventDefault(); buscarProductos();">
+      <input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+
+  <!-- Contenido del producto -->
+  <main class="producto-detalle">
+    <div class="producto-info">
+      <!-- Galería de imágenes -->
+      <div id="galeriaImagenes" class="producto-galeria"></div>
+
+      <!-- Datos del producto -->
+      <div class="producto-datos">
+        <h1 id="prodTitulo"></h1>
+        <div id="prodPrecio" class="hd-card__price"></div>
+        <div id="prodRating" class="hd-card__rating"></div>
+        <ul id="prodSpecs" class="hd-panel__specs"></ul>
+        <div id="prodStock" class="hd-panel__stock"></div>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <section class="relacionados">
+      <h2>Productos relacionados</h2>
+      <div id="productosRelacionados" class="hd-grid"></div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+const galeria = document.getElementById("galeriaImagenes");
+  galeria.innerHTML = "";
+  producto.imagenes.forEach((img, idx) => {
+    galeria.innerHTML += `<img src="${img}" alt="${producto.titulo} vista ${idx+1}">`;
+  });

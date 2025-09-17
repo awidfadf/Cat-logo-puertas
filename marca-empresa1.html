@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo XE Seguridad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <form class="hd-header__search" onsubmit="event.preventDefault(); buscarProductos();">
+      <input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+
+  <!-- Grid de productos -->
+  <main class="hd-grid" id="gridProductos"></main>
+
+   <footer>
+    <p>© 2025 nombre. Todos los derechos reservados.</p>
+  </footer>
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const productosXE = PRODUCTOS.filter(p => p.empresa === "xe");
+      renderProductos(productosXE);
+    });
+  </script>
+</body>
+</html>
+
+
+
+

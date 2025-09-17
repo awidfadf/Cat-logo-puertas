@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalle del producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <!-- <div class="hd-header__logo"><a href="index.html">Logo</a></div> -->
+    <form class="hd-header__search" onsubmit="event.preventDefault(); buscarProductos();">
+      <input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+
+  <!-- Contenido del producto -->
+  <main class="producto-detalle">
+    <div class="producto-info">
+      
+      <!-- Galería -->
+      <div class="producto-galeria">
+        <img id="mainImage" src="" alt="Imagen principal del producto">
+        <div class="hd-detail__gallery-thumbs" id="galeriaImagenes"></div>
+      </div>
+
+      <!-- Datos -->
+      <div class="producto-datos">
+        <h1 id="prodTitulo"></h1>
+        <div id="prodPrecio" class="hd-card__price"></div>
+        <div id="prodRating" class="hd-card__rating"></div>
+        <ul id="prodSpecs" class="hd-panel__specs"></ul>
+        <div id="prodStock" class="hd-panel__stock"></div>
+        <a href="contacto.html" class="contacto-btn">Contactar</a>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <section class="relacionados">
+      <h2>Productos relacionados</h2>
+      <div id="productosRelacionados" class="hd-grid"></div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
