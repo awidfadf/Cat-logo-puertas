@@ -1359,8 +1359,8 @@ const EMPRESAS = [
     id: 1,
     nombre: "XE Seguridad",
     desc: `XE Seguridad es una empresa especializada en puertas de alta seguridad 
-           para hogares, comercios y oficinas. Su catálogo se centra en puertas 
-           blindadas y reforzadas, diseñadas para resistir intentos de intrusión 
+           para hogares, comercios y oficinas. Su catálogo se centra en puertas reforzadas,
+           diseñadas para resistir intentos de intrusión 
            y brindar máxima protección sin sacrificar la estética.
 
            Ofrecen modelos con acabados modernos y personalizados, adaptables a 
@@ -1514,6 +1514,7 @@ if (producto.imagenes && producto.imagenes.length > 0) {
 if (window.location.pathname.endsWith("producto.html")) {
   document.addEventListener("DOMContentLoaded", mostrarDetalleProducto);
 }
+
 
 
 
