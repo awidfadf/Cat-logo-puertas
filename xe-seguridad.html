@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo XE Seguridad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="hd-header">
+    <form class="hd-header__search" onsubmit="event.preventDefault(); buscarProductos();">
+      <input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar" />
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+
+  <!-- Grid de productos -->
+  <main class="hd-grid" id="gridProductos"></main>
+
+  <footer class="mainfooter">
+  <div class="footer-col footer-left">
+    <p>© 2025 Puertas de Seguridad XE. <br>Todos los derechos reservados.</p>
+  </div>
+
+  <div class="footer-col footer-center">
+    <p><i class="fa-solid fa-location-dot"></i> Av. Solidaridad #119, <br>Lomas de Bernardez, 98617 Guadalupe, Zac.</p>
+  </div>
+
+  <div class="footer-col footer-right">
+    <p><i class="fa-solid fa-headset"></i> Atención a clientes</p>
+    <p><i class="fa-solid fa-phone"></i> +52 492 145 0186</p>
+  </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const productosXE = PRODUCTOS.filter(p => p.empresa === "xe");
+      renderProductos(productosXE);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
