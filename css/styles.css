@@ -523,9 +523,11 @@ main {
   transform: scale(1.05); /* pequeña animación */
 }
 
-.hd-card__price{
+.hd-card__price2{
   padding-left: 23px;
-}
+  font-size: 1.1rem;
+  font-weight: 700;
+} 
 
 #prodTitulo{
   padding-left: 23px;
@@ -600,3 +602,4 @@ main {
     margin-top: 1rem;
   }
 }
+
