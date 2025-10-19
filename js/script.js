@@ -1369,7 +1369,7 @@ const EMPRESAS = [
            La misión de XE Seguridad es combinar diseño y resistencia, garantizando 
            a sus clientes la tranquilidad de contar con productos confiables, 
            duraderos y certificados en estándares de seguridad.`,
-    link: "marca-empresa1.html"
+    link: "xe-seguridad.html"
   },
   {
   id: 2,
@@ -1385,7 +1385,7 @@ const EMPRESAS = [
          Tecno Door tiene como visión ofrecer soluciones arquitectónicas elegantes, que 
          se adapten a proyectos residenciales y comerciales, manteniendo una relación 
          calidad-precio competitiva.`,
-  link: "marca-empresa2.html"
+  link: "tecnodoor.html"
 },
 {
   id: 3,
@@ -1402,7 +1402,7 @@ const EMPRESAS = [
          de entrega rápidos, lo que la convierte en una opción ideal para constructoras, 
          remodelaciones y clientes que buscan soluciones prácticas sin comprometer la 
          calidad básica.`,
-  link: "marca-empresa3.html"
+  link: "protecto-home.html"
 }
 ];
 
@@ -1467,7 +1467,7 @@ function mostrarDetalleProducto() {
     <li><strong>Medidas:</strong> ${producto.medidas}</li>
     <li><strong>Colores:</strong> ${producto.color}</li>
     <li><strong>Categoria:</strong> ${producto.categoria}</li>
-    <li><strong>Stock:</strong> ${producto.stock === "disponible" ? "Disponible" : "No disponible"}</li>
+    <li><strong>Stock:</strong> ${producto.stock}</li>
   `;
 
   // Galería
@@ -1514,6 +1514,7 @@ if (producto.imagenes && producto.imagenes.length > 0) {
 if (window.location.pathname.endsWith("producto.html")) {
   document.addEventListener("DOMContentLoaded", mostrarDetalleProducto);
 }
+
 
 
 
